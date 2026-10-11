@@ -1,0 +1,62 @@
+{
+  "note": "Historical diagnostic trials. Single-period passes did not establish sustained bounded motion; see final report for acceptance.",
+  "trials": [
+    {
+      "trial": "wholebody_baseline",
+      "original_passed": false,
+      "samples": 164
+    },
+    {
+      "trial": "wholebody_fixed",
+      "original_passed": true,
+      "samples": 246,
+      "period": 16.0,
+      "max_truth_tool_error_m": 0.03208574637439879,
+      "max_abs_body_offset_m": [
+        0.015304040745958924,
+        0.05660891133214707,
+        0.06488607011587244
+      ],
+      "bounds_violation_samples": 0
+    },
+    {
+      "trial": "wholebody_v2",
+      "original_passed": true,
+      "samples": 270,
+      "period": 16.0,
+      "max_truth_tool_error_m": 0.022074428540863125,
+      "max_abs_body_offset_m": [
+        0.019017297761065977,
+        0.037879274221457426,
+        0.02814094938695466
+      ],
+      "bounds_violation_samples": 0
+    },
+    {
+      "trial": "wholebody_final",
+      "original_passed": false,
+      "samples": 1064,
+      "period": 16.0,
+      "max_truth_tool_error_m": 0.04186827826690315,
+      "max_abs_body_offset_m": [
+        0.030286508522466726,
+        0.07974129706665478,
+        0.09272912102529607
+      ],
+      "bounds_violation_samples": 248
+    },
+    {
+      "trial": "wholebody_slow",
+      "original_passed": false,
+      "samples": 782,
+      "period": 32.0,
+      "max_truth_tool_error_m": 0.03859763600316884,
+      "max_abs_body_offset_m": [
+        0.03731926313829648,
+        0.06643779968240693,
+        0.08094151480026857
+      ],
+      "bounds_violation_samples": 134
+    }
+  ]
+}

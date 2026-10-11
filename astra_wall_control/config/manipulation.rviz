@@ -1,0 +1,106 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+- Class: rviz_common/Tool Properties
+  Name: Tool Properties
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Fixed Frame: map
+    Background Color: 35; 35; 40
+    Frame Rate: 30
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Grid
+    Enabled: true
+    Cell Size: 0.5
+    Plane Cell Count: 20
+  - Class: rviz_default_plugins/MarkerArray
+    Name: 01 Measured vehicle and arm
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/vehicle
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: 02 Whole-body safety envelope
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/safety
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: 03 World obstacles
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/scene
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: 04 Safe corridors and waypoints
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/corridors
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: Optional original free-space boundaries
+    Enabled: false
+    Topic:
+      Value: /aerial_visualization/free_space
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: 05 Planned and flown trajectories
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/trajectories
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: 06 Targets and tracking errors
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/goals
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: 07 Flight status and joint feedback
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/status
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/InteractiveMarkers
+    Name: 08 Drag target XYZ
+    Enabled: true
+    Update Topic: /air_test/goal/update
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  - Class: rviz_default_plugins/Select
+  - Class: rviz_default_plugins/SetGoal
+    Topic: /goal_pose
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 4.5
+      Pitch: 0.38
+      Yaw: 0.85
+      Focal Point:
+        X: 0.7
+        Y: 0.0
+        Z: 1.5
+Window Geometry:
+  Width: 1280
+  Height: 900
+  X: 0
+  Y: 30

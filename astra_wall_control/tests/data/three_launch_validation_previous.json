@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-03",
+  "unit_tests_passed": 20,
+  "manual": {
+    "status": "takeoff_and_independent_commands_observed; not_full_acceptance",
+    "samples": 21,
+    "final_phase": "APPROACH",
+    "body_target": [
+      0.5,
+      0.2,
+      1.6
+    ],
+    "final_truth_body": [
+      0.528948714999681,
+      0.21815747863476428,
+      1.648767466308555
+    ],
+    "final_joints": [
+      0.12007522281346272,
+      -0.05009295215194598,
+      0.1000172318768418,
+      0.04998117081396103,
+      -1.9204408268080897e-06,
+      0.004999471695531184,
+      0.005000528873877821
+    ],
+    "final_error_m": 0.05954819813109975
+  },
+  "corridor": {
+    "samples": 1140,
+    "final_phase": "APPROACH",
+    "body_target": [
+      2.7,
+      0.0,
+      1.6
+    ],
+    "final_truth_body": [
+      2.6998087138409526,
+      0.06569621768590098,
+      1.785739905994151
+    ],
+    "final_joints": [
+      4.532849640259684e-05,
+      -0.05006500850915341,
+      0.10001620418945995,
+      0.04998864457253571,
+      -3.4898812257821987e-06,
+      0.010000319730707575,
+      0.009999680948570759
+    ],
+    "final_error_m": 0.19701609651839097,
+    "physical_acceptance_passed": false,
+    "minimum_observed_obstacle_clearance_m": 0.3686071660258161
+  },
+  "wholebody": {
+    "samples": 667,
+    "final_phase": "HOLD",
+    "body_target": [
+      0.5597001940112678,
+      0.5,
+      1.5964829256383022
+    ],
+    "final_truth_body": [
+      0.5934801248746687,
+      0.5028715287657886,
+      1.6366431254368174
+    ],
+    "final_joints": [
+      0.0009584917428284712,
+      -0.03915997509195979,
+      0.08980863560793648,
+      0.043983177899311166,
+      0.0003532509151664698,
+      0.00999802349268439,
+      0.010001977225500239
+    ],
+    "final_error_m": 0.04454045535038732,
+    "physical_acceptance_passed": false,
+    "ee_target": [
+      1.0,
+      0.5,
+      1.4
+    ],
+    "final_truth_ee": [
+      1.0232089523254413,
+      0.5048086382667984,
+      1.437710392371259
+    ],
+    "final_estimated_ee_error_m": 0.01612572698236936
+  },
+  "physical_validation_revision": "Before RViz joint editing, minimum-jerk corridor tracking and bounded stationary-tool body motion; those changes require a new physical acceptance run."
+}

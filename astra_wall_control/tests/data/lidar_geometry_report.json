@@ -1,0 +1,74 @@
+{
+  "before": {
+    "passed": false,
+    "radial_correction": 0.0,
+    "planes": [
+      {
+        "plane": "ceiling",
+        "points": 1600,
+        "median_abs_error_m": 0.13064372422054227,
+        "passed": false
+      },
+      {
+        "plane": "rear",
+        "points": 1112,
+        "median_abs_error_m": 0.1696129207209489,
+        "passed": false
+      },
+      {
+        "plane": "far",
+        "points": 490,
+        "median_abs_error_m": 0.18793116853837422,
+        "passed": false
+      },
+      {
+        "plane": "right",
+        "points": 961,
+        "median_abs_error_m": 0.17363592573263897,
+        "passed": false
+      },
+      {
+        "plane": "left",
+        "points": 834,
+        "median_abs_error_m": 0.1783995119008528,
+        "passed": false
+      }
+    ]
+  },
+  "after": {
+    "passed": true,
+    "radial_correction": 0.0,
+    "planes": [
+      {
+        "plane": "ceiling",
+        "points": 1676,
+        "median_abs_error_m": 5.94587577773531e-06,
+        "passed": true
+      },
+      {
+        "plane": "rear",
+        "points": 1171,
+        "median_abs_error_m": 5.093672785783099e-06,
+        "passed": true
+      },
+      {
+        "plane": "far",
+        "points": 492,
+        "median_abs_error_m": 5.549902090784542e-06,
+        "passed": true
+      },
+      {
+        "plane": "right",
+        "points": 1008,
+        "median_abs_error_m": 3.684163929484896e-08,
+        "passed": true
+      },
+      {
+        "plane": "left",
+        "points": 863,
+        "median_abs_error_m": 5.952816417575946e-08,
+        "passed": true
+      }
+    ]
+  }
+}

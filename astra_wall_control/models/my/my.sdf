@@ -1,0 +1,1497 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sdf version="1.6">
+  <model name="my">
+    
+    <static>false</static>
+    <include>
+      <uri>model://iris_arm_base</uri>
+      <pose>0 0 0.50 0 0 0</pose>
+    <name>iris_without_GPS</name></include>
+    <include>
+      <uri>model://mid360</uri>
+      <pose>0 0 0.58 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://D435i</uri>
+      <pose>0.12 0 0.53 1.57 0 1.57</pose>
+    </include>
+    <include>
+      <uri>model://fpv_cam</uri>
+      <pose>0.108 0 0.47 0 1.5708 0</pose>
+    </include>
+    <joint name="mid360_joint" type="fixed">
+      <parent>iris_without_GPS::base_link</parent>
+      <child>mid360::lidar_link</child>
+    </joint>
+    <joint name="realsense_camera_joint" type="fixed">
+      <parent>iris_without_GPS::base_link</parent>
+      <child>D435i::camera_link</child>
+    </joint>
+    <joint name="fpv_cam_joint" type="fixed">
+      <parent>iris_without_GPS::base_link</parent>
+      <child>fpv_cam::link</child>
+    </joint>
+    <link name="landing_gear">
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0.0 -2.168404344971009e-18 0.19555999999999998 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.02270019328</ixx>
+          <ixy>-5.421010862e-20</ixy>
+          <ixz>5.421010862e-20</ixz>
+          <iyy>0.01311554928</iyy>
+          <iyz>1.084202172e-19</iyz>
+          <izz>0.023966652</izz>
+        </inertia>
+      </inertial>
+      <collision name="left_skid_collision">
+        <pose>0 0.3 0.012 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.58 0.026 0.024</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="left_skid_visual">
+        <pose>0 0.3 0.012 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.58 0.026 0.024</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_front_leg_collision">
+        <pose>0.2 0.3 0.228 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.018 0.408</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="left_front_leg_visual">
+        <pose>0.2 0.3 0.228 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.018 0.408</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_front_bracket_collision">
+        <pose>0.2 0.24 0.433 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.026 0.14 0.024</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="left_front_bracket_visual">
+        <pose>0.2 0.24 0.433 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.026 0.14 0.024</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.35 0.75 1</ambient>
+          <diffuse>0.12 0.35 0.75 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_rear_leg_collision">
+        <pose>-0.2 0.3 0.228 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.018 0.408</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="left_rear_leg_visual">
+        <pose>-0.2 0.3 0.228 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.018 0.408</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+      <collision name="left_rear_bracket_collision">
+        <pose>-0.2 0.24 0.433 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.026 0.14 0.024</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="left_rear_bracket_visual">
+        <pose>-0.2 0.24 0.433 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.026 0.14 0.024</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.35 0.75 1</ambient>
+          <diffuse>0.12 0.35 0.75 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_skid_collision">
+        <pose>0 -0.3 0.012 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.58 0.026 0.024</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="right_skid_visual">
+        <pose>0 -0.3 0.012 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.58 0.026 0.024</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_front_leg_collision">
+        <pose>0.2 -0.3 0.228 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.018 0.408</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="right_front_leg_visual">
+        <pose>0.2 -0.3 0.228 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.018 0.408</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_front_bracket_collision">
+        <pose>0.2 -0.24 0.433 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.026 0.14 0.024</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="right_front_bracket_visual">
+        <pose>0.2 -0.24 0.433 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.026 0.14 0.024</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.35 0.75 1</ambient>
+          <diffuse>0.12 0.35 0.75 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_rear_leg_collision">
+        <pose>-0.2 -0.3 0.228 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.018 0.408</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="right_rear_leg_visual">
+        <pose>-0.2 -0.3 0.228 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.018 0.408</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+      <collision name="right_rear_bracket_collision">
+        <pose>-0.2 -0.24 0.433 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.026 0.14 0.024</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.8</mu>
+              <mu2>0.8</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>100</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <visual name="right_rear_bracket_visual">
+        <pose>-0.2 -0.24 0.433 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.026 0.14 0.024</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.35 0.75 1</ambient>
+          <diffuse>0.12 0.35 0.75 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="landing_gear_joint" type="fixed">
+      <parent>iris_without_GPS::base_link</parent>
+      <child>landing_gear</child>
+    </joint>
+    <link name="arm_mount">
+      <pose>0.015 0 0.4 0 -0 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>-0.015 0 0.0145 0 0 0</pose>
+        <mass>0.04</mass>
+        <inertia>
+          <ixx>3.37583333333e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>-1.23e-05</ixz>
+          <iyy>4.38833333333e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2.72083333333e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="plate_collision">
+        <pose>0 0 0.035 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07 0.065 0.012</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="plate_visual">
+        <pose>0 0 0.035 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07 0.065 0.012</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.10 0.32 0.66 1</ambient>
+          <diffuse>0.10 0.32 0.66 1</diffuse>
+        </material>
+      </visual>
+      <collision name="pedestal_collision">
+        <pose>-0.03 0 -0.006 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.03 0.03 0.07</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="pedestal_visual">
+        <pose>-0.03 0 -0.006 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.03 0.03 0.07</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="arm_mount_joint" type="fixed">
+      <parent>iris_without_GPS::base_link</parent>
+      <child>arm_mount</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+    <link name="arm_yaw_link">
+      <pose>0.015 0 0.345 0 -0 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.045</mass>
+        <inertia>
+          <ixx>1.836e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.1475e-05</iyy>
+          <iyz>0</iyz>
+          <izz>2.0115e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="yaw_servo_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.042 0.06 0.036</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="yaw_servo_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.042 0.06 0.036</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.45 0.08 1</ambient>
+          <diffuse>0.95 0.45 0.08 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="arm_yaw_joint" type="revolute">
+      <parent>arm_mount</parent>
+      <child>arm_yaw_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+          <effort>1.2</effort>
+          <velocity>0.7</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.025</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="arm_boom_link">
+      <pose>0.015 0 0.345 0 0.18 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0.0645 0 -0.011 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>4.28833333333e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>2.85e-05</ixz>
+          <iyy>0.000363525</iyy>
+          <iyz>0</iyz>
+          <izz>0.000373575</izz>
+        </inertia>
+      </inertial>
+      <collision name="shoulder_servo_collision">
+        <pose>0.017 0 -0.005 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.04 0.032 0.042</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="shoulder_servo_visual">
+        <pose>0.017 0 -0.005 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.04 0.032 0.042</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.45 0.08 1</ambient>
+          <diffuse>0.95 0.45 0.08 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rail_floor_collision">
+        <pose>0.112 0 -0.026 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.166 0.06 0.014</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="rail_floor_visual">
+        <pose>0.112 0 -0.026 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.166 0.06 0.014</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.10 0.32 0.66 1</ambient>
+          <diffuse>0.10 0.32 0.66 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rail_left_collision">
+        <pose>0.112 0.024 -0.008 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.166 0.012 0.022</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="rail_left_visual">
+        <pose>0.112 0.024 -0.008 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.166 0.012 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.10 0.32 0.66 1</ambient>
+          <diffuse>0.10 0.32 0.66 1</diffuse>
+        </material>
+      </visual>
+      <collision name="rail_right_collision">
+        <pose>0.112 -0.024 -0.008 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.166 0.012 0.022</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="rail_right_visual">
+        <pose>0.112 -0.024 -0.008 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.166 0.012 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.10 0.32 0.66 1</ambient>
+          <diffuse>0.10 0.32 0.66 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="arm_shoulder_joint" type="revolute">
+      <parent>arm_yaw_link</parent>
+      <child>arm_boom_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.18</lower>
+          <upper>0.24</upper>
+          <effort>2.5</effort>
+          <velocity>0.7</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.035</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="arm_slider_link">
+      <pose>0.231445612413 0 0.305613493846 0 0.18 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>-0.0653846153846 0 0 0 0 0</pose>
+        <mass>0.065</mass>
+        <inertia>
+          <ixx>7.12333333333e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000214078717949</iyy>
+          <iyz>0</iyz>
+          <izz>0.000215358717949</izz>
+        </inertia>
+      </inertial>
+      <collision name="slider_collision">
+        <pose>-0.09 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.18 0.024 0.018</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="slider_visual">
+        <pose>-0.09 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.18 0.024 0.018</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.62 0.67 0.72 1</ambient>
+          <diffuse>0.62 0.67 0.72 1</diffuse>
+        </material>
+      </visual>
+      <collision name="wrist_motor_collision">
+        <pose>-0.01 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.025 0.035 0.032</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="wrist_motor_visual">
+        <pose>-0.01 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.025 0.035 0.032</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.45 0.08 1</ambient>
+          <diffuse>0.95 0.45 0.08 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="arm_extension_joint" type="prismatic">
+      <parent>arm_boom_link</parent>
+      <child>arm_slider_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.14</upper>
+          <effort>12</effort>
+          <velocity>0.2</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="arm_wrist_link">
+      <pose>0.231445612413 0 0.305613493846 0 4.1627465865e-18 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0.014 0 0 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>6.375e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.33333333333e-06</iyy>
+          <iyz>0</iyz>
+          <izz>5.30833333333e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name="gimbal_collision">
+        <pose>0.014 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.028 0.042 0.036</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="gimbal_visual">
+        <pose>0.014 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.028 0.042 0.036</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.10 0.32 0.66 1</ambient>
+          <diffuse>0.10 0.32 0.66 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="arm_wrist_joint" type="revolute">
+      <parent>arm_slider_link</parent>
+      <child>arm_wrist_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.45</lower>
+          <upper>0.45</upper>
+          <effort>0.8</effort>
+          <velocity>1</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.015</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="arm_roll_link">
+      <pose>0.261445612413 0 0.305613493846 0 4.1627465865e-18 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0.007 0 0 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>2.01666666667e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.41666666667e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.41666666667e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name="roll_servo_collision">
+        <pose>0.007 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.014 0.022 0.022</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="roll_servo_visual">
+        <pose>0.007 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.014 0.022 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.95 0.45 0.08 1</ambient>
+          <diffuse>0.95 0.45 0.08 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="arm_roll_joint" type="revolute">
+      <parent>arm_wrist_link</parent>
+      <child>arm_roll_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-1.5707963267948966</lower>
+          <upper>1.5707963267948966</upper>
+          <effort>0.4</effort>
+          <velocity>1.2</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="arm_tool_link">
+      <pose>0.261445612413 0 0.305613493846 0 4.1627465865e-18 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0.00976315789474 0 0.00173684210526 0 0 0</pose>
+        <mass>0.038000000000000006</mass>
+        <inertia>
+          <ixx>2.92507017544e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>1.82368421053e-07</ixz>
+          <iyy>4.43590350877e-06</iyy>
+          <iyz>0</iyz>
+          <izz>2.68265350877e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="palm_collision">
+        <pose>0.01 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.094 0.026</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="palm_visual">
+        <pose>0.01 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.018 0.094 0.026</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+      <collision name="camera_bracket_collision">
+        <pose>0.007 0 0.022 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.012 0.014 0.022</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="camera_bracket_visual">
+        <pose>0.007 0 0.022 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.012 0.014 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.10 0.32 0.66 1</ambient>
+          <diffuse>0.10 0.32 0.66 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="arm_tool_joint" type="fixed">
+      <parent>arm_roll_link</parent>
+      <child>arm_tool_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <physics>
+        <provide_feedback>true</provide_feedback>
+        <ode>
+          <provide_feedback>true</provide_feedback>
+        </ode>
+      </physics>
+    </joint>
+    <link name="gripper_left_link">
+      <pose>0.280445612413 0.026 0.305613493846 0 4.1627465865e-18 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0.0335 0 0 0 0 0</pose>
+        <mass>0.012</mass>
+        <inertia>
+          <ixx>6.89e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.594e-06</iyy>
+          <iyz>0</iyz>
+          <izz>4.219e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name="finger_collision">
+        <pose>0.026 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.052 0.012 0.022</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>20000</kp>
+              <kd>40</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="finger_visual">
+        <pose>0.026 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.052 0.012 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.62 0.67 0.72 1</ambient>
+          <diffuse>0.62 0.67 0.72 1</diffuse>
+        </material>
+      </visual>
+      <collision name="contact_pad_collision">
+        <pose>0.056 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.006 0.014 0.026</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>20000</kp>
+              <kd>40</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="contact_pad_visual">
+        <pose>0.056 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.006 0.014 0.026</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.08 0.09 0.10 1</ambient>
+          <diffuse>0.08 0.09 0.10 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="left_contacts" type="contact">
+        <always_on>true</always_on>
+        <update_rate>200</update_rate>
+        <contact>
+          <collision>finger_collision</collision>
+          <collision>contact_pad_collision</collision>
+        </contact>
+        <plugin name="gripper_left_contact_ros" filename="libgazebo_ros_bumper.so"><ros><namespace>/my/arm</namespace><remapping>bumper_states:=gripper_left_contact</remapping></ros><frame_name>world</frame_name></plugin></sensor>
+    </link>
+    <joint name="gripper_left_joint" type="prismatic">
+      <parent>arm_tool_link</parent>
+      <child>gripper_left_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.019</lower>
+          <upper>0.02</upper>
+          <effort>6</effort>
+          <velocity>0.08</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.4</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="gripper_right_link">
+      <pose>0.280445612413 -0.026 0.305613493846 0 4.1627465865e-18 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0.0335 0 0 0 0 0</pose>
+        <mass>0.012</mass>
+        <inertia>
+          <ixx>6.89e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.594e-06</iyy>
+          <iyz>0</iyz>
+          <izz>4.219e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name="finger_collision">
+        <pose>0.026 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.052 0.012 0.022</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>20000</kp>
+              <kd>40</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="finger_visual">
+        <pose>0.026 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.052 0.012 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.62 0.67 0.72 1</ambient>
+          <diffuse>0.62 0.67 0.72 1</diffuse>
+        </material>
+      </visual>
+      <collision name="contact_pad_collision">
+        <pose>0.056 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.006 0.014 0.026</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>20000</kp>
+              <kd>40</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="contact_pad_visual">
+        <pose>0.056 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.006 0.014 0.026</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.08 0.09 0.10 1</ambient>
+          <diffuse>0.08 0.09 0.10 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="right_contacts" type="contact">
+        <always_on>true</always_on>
+        <update_rate>200</update_rate>
+        <contact>
+          <collision>finger_collision</collision>
+          <collision>contact_pad_collision</collision>
+        </contact>
+        <plugin name="gripper_right_contact_ros" filename="libgazebo_ros_bumper.so"><ros><namespace>/my/arm</namespace><remapping>bumper_states:=gripper_right_contact</remapping></ros><frame_name>world</frame_name></plugin></sensor>
+    </link>
+    <joint name="gripper_right_joint" type="prismatic">
+      <parent>arm_tool_link</parent>
+      <child>gripper_right_link</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.019</lower>
+          <upper>0.02</upper>
+          <effort>6</effort>
+          <velocity>0.08</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.4</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name="arm_camera_link">
+      <pose>0.268445612413 0 0.343613493846 0 0.52 0</pose>
+      <self_collide>true</self_collide>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>1.685e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.01e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.885e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name="camera_housing_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.022 0.032 0.018</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.7</mu>
+              <mu2>0.7</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>80000</kp>
+              <kd>80</kd>
+              <max_vel>0.1</max_vel>
+              <min_depth>0.0002</min_depth>
+            </ode>
+          </contact>
+          <bounce>
+            <restitution_coefficient>0</restitution_coefficient>
+          </bounce>
+        </surface>
+      </collision>
+      <visual name="camera_housing_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.022 0.032 0.018</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.12 0.14 0.17 1</ambient>
+          <diffuse>0.12 0.14 0.17 1</diffuse>
+        </material>
+      </visual>
+      <sensor name="arm_grasp_rgbd" type="depth">
+        <pose>.012 0 0 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+        <visualize>false</visualize>
+        <camera name="arm_grasp_camera">
+          <horizontal_fov>1.3962634016</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>3.0</far>
+          </clip>
+        </camera>
+        <plugin name="arm_grasp_camera_ros" filename="libgazebo_ros_camera.so"><camera_name>my/arm/camera</camera_name><frame_name>arm_camera_optical_frame</frame_name><min_depth>0.025</min_depth></plugin></sensor>
+      <visual name="camera_lens_visual">
+        <pose>.0115 0 0 0 1.570796326795 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.001</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.05 0.25 0.4 1</ambient>
+          <diffuse>0.05 0.25 0.4 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <joint name="arm_camera_joint" type="fixed">
+      <parent>arm_tool_link</parent>
+      <child>arm_camera_link</child>
+      <pose>0 0 0 0 0 0</pose>
+    </joint>
+    <plugin name="arm_actuation" filename="libastra_arm_control.so">
+      <robotNamespace>/my/arm</robotNamespace>
+      <commandTimeout>0.25</commandTimeout>
+      <stateRate>200</stateRate>
+      <joint name="arm_yaw_joint">
+        <kp>12</kp>
+        <kd>0.35</kd>
+      </joint>
+      <joint name="arm_shoulder_joint">
+        <kp>22</kp>
+        <kd>0.55</kd>
+      </joint>
+      <joint name="arm_extension_joint">
+        <kp>500</kp>
+        <kd>12</kd>
+      </joint>
+      <joint name="arm_wrist_joint">
+        <kp>6</kp>
+        <kd>0.12</kd>
+      </joint>
+      <joint name="arm_roll_joint">
+        <kp>3</kp>
+        <kd>0.06</kd>
+      </joint>
+      <joint name="gripper_left_joint">
+        <kp>350</kp>
+        <kd>3</kd>
+      </joint>
+      <joint name="gripper_right_joint">
+        <kp>350</kp>
+        <kd>3</kd>
+      </joint>
+    </plugin>
+    <plugin name="arm_wrench" filename="libgazebo_ros_ft_sensor.so"><ros><namespace>/my/arm</namespace><remapping>wrench:=wrist_wrench</remapping></ros><joint_name>arm_tool_joint</joint_name><update_rate>100</update_rate></plugin><plugin name="evaluation_truth" filename="libgazebo_ros_p3d.so"><ros><namespace>/wall_eval</namespace><remapping>odom:=body</remapping></ros><body_name>iris_without_GPS::base_link</body_name><frame_name>world</frame_name><update_rate>50</update_rate></plugin></model>
+</sdf>

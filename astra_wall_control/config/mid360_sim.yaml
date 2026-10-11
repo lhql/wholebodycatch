@@ -1,0 +1,55 @@
+/**:
+    ros__parameters:
+        # 仿真专用 FAST-LIO2 参数（不改 FAST_LIO_ROS2 包内默认配置）
+        feature_extract_enable: false
+        point_filter_num: 2          # 原 3：仿真点云只有 ~20k 点，少丢一些更利于配准
+        max_iteration: 4             # 原 3：多迭代一次提高收敛精度
+        filter_size_surf: 0.3        # 原 0.5：小场景用更细的 surf 降采样
+        filter_size_map: 0.3         # 原 0.5：地图更密，避免稀疏地图引起的位姿跳变
+        cube_side_length: 200.0      # 原 1000：本世界只有几十米，缩小局部地图范围
+        runtime_pos_log_enable: false
+        map_file_path: "./test.pcd"
+
+        common:
+            lid_topic:  "/livox/lidar"
+            imu_topic:  "/livox/imu"
+            time_sync_en: false
+            time_offset_lidar_to_imu: 0.0
+
+        preprocess:
+            lidar_type: 1                # 1: Livox (CustomMsg)
+            scan_line:  4
+            blind: 0.5
+            timestamp_unit: 3            # livox 仿真插件 offset_time 是 ns
+            scan_rate: 10
+
+        mapping:
+            acc_cov: 0.05                # 仿真 IMU 无噪声，收紧过程噪声
+            gyr_cov: 0.02
+            b_acc_cov: 0.00001
+            b_gyr_cov: 0.00001
+            fov_degree:    360.0
+            det_range:     40.0          # 与 ray sensor 的 max range 一致
+            # 仿真的 IMU-LiDAR 外参与 SDF 完全已知（mid360.sdf 里的 pose），
+            # 关闭在线外参估计可以去掉 6 个状态、显著减少漂移与跳变
+            extrinsic_est_en:  false
+            # LiDAR origin (0,0,0.05) minus IMU origin (-.011,-.02329,.04412).
+            # FAST-LIO expects LiDAR -> IMU, not the IMU pose in the link.
+            extrinsic_T: [ 0.011, 0.02329, 0.00588 ]
+            extrinsic_R: [ 1., 0., 0.,
+                            0., 1., 0.,
+                            0., 0., 1.]
+
+        publish:
+            path_en: true
+            effect_map_en: false
+            map_en: true
+            scan_publish_en:  true
+            dense_publish_en: false
+            scan_bodyframe_pub_en: true
+
+        pcd_save:
+            # 仿真长航时不再把所有帧累积成一个巨大 PCD（内存暴涨，
+            # 之前还怀疑它拖死了 Gazebo/RViz 的图形进程）
+            pcd_save_en: false
+            interval: -1

@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-03",
+  "unit_tests_passed": 21,
+  "physical_validation_revision": "Local MID360 ray-origin fix, minimum-jerk corridor, RViz feedback goals, bounded WBC with 32 s base period and measured-velocity damping.",
+  "previous_report": "tests/data/three_launch_validation_previous.json",
+  "manual": {
+    "physical_acceptance_passed": true,
+    "samples": 178,
+    "goal_source": "rviz",
+    "final_phase": "APPROACH",
+    "final_truth_error_m": 0.04907963656951522,
+    "record": "tests/data/manual_sitl.json.gz",
+    "final_body_estimation_error_m": [
+      0.002716496201880414,
+      -0.002550521421683022,
+      0.0005325295995488588
+    ],
+    "final_joint_error": 0.00012047450513186231,
+    "tail_8s_max_position_error_m": 0.07913508589252542
+  },
+  "corridor": {
+    "physical_acceptance_passed": true,
+    "samples": 843,
+    "goal_source": "topic",
+    "final_phase": "HOLD",
+    "final_truth_error_m": 0.007075699611932475,
+    "record": "tests/data/corridor_sitl.json.gz",
+    "final_body_estimation_error_m": [
+      0.009134315014304839,
+      -0.001315435578402534,
+      -0.0034702980229519564
+    ],
+    "minimum_observed_obstacle_clearance_m": 0.40570594512585556,
+    "minimum_observed_true_center_corridor_clearance_m": 0.24233869154043042,
+    "nominal_trajectory_duration_s": 138.45085174311973,
+    "tail_8s_max_position_error_m": 0.09027990124856938
+  },
+  "wholebody": {
+    "physical_acceptance_passed": true,
+    "samples": 515,
+    "goal_source": "rviz",
+    "final_phase": "HOLD",
+    "final_truth_error_m": 0.006489362182626258,
+    "record": "tests/data/wholebody_sitl.json.gz",
+    "final_body_estimation_error_m": [
+      0.0030923820779822364,
+      -0.0003558520134822052,
+      0.001143318657869763
+    ],
+    "motion": {
+      "duration": 64.08699999999999,
+      "phase_span": 64.08699999999999,
+      "body_span": [
+        0.04622221974415619,
+        0.07968435309864175,
+        0.06601751324763172
+      ],
+      "yaw_span": 0.1686060487687949,
+      "joint_span": [
+        0.3061400527308349,
+        0.15017208541480365,
+        0.03996336474135291,
+        0.1345462831767854,
+        0.01221770735999339,
+        2.838717673542268e-05,
+        2.8385689662046784e-05
+      ]
+    },
+    "max_moving_truth_tool_error_m": 0.0173458489435198,
+    "mean_moving_truth_tool_error_m": 0.007867288855977234,
+    "max_abs_actual_body_offset": [
+      0.027077784560139206,
+      0.04149779983887536,
+      0.04298606406190775,
+      0.08669746295084052
+    ],
+    "motion_bounds_violation_samples": 0,
+    "configured_bounds": [
+      0.06,
+      0.06,
+      0.05,
+      0.2
+    ],
+    "base_period_s": 32.0,
+    "motion_periods": 2
+  }
+}
