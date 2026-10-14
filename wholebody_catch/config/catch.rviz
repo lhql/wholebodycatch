@@ -1,0 +1,68 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Fixed Frame: map
+    Background Color: 35; 35; 40
+    Frame Rate: 20
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Grid
+    Enabled: true
+    Cell Size: 0.5
+  - Class: rviz_default_plugins/MarkerArray
+    Name: Measured vehicle and arm
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/vehicle
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: End effector and reference
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/goals
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/MarkerArray
+    Name: Flight status
+    Enabled: true
+    Topic:
+      Value: /aerial_visualization/status
+      Depth: 1
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/PointStamped
+    Name: RGB-D target center
+    Enabled: true
+    Topic:
+      Value: /wholebody_catch/target
+      Depth: 10
+      Reliability Policy: Reliable
+    Color: 255; 60; 40
+    Radius: 0.02
+  - Class: rviz_default_plugins/Image
+    Name: Wrist RGB camera
+    Enabled: true
+    Topic:
+      Value: /my/arm/camera/image_raw
+      Depth: 2
+      Reliability Policy: Best Effort
+    Queue Size: 2
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 3.0
+      Focal Point: {X: 0.8, Y: 0.0, Z: 1.2}
+      Pitch: 0.25
+      Yaw: 2.2
+Window Geometry:
+  Width: 1400
+  Height: 900

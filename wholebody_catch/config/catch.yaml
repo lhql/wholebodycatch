@@ -1,0 +1,38 @@
+catch_vision:
+  ros__parameters:
+    rgb_topic: /my/arm/camera/image_raw
+    depth_topic: /my/arm/camera/depth/image_raw
+    info_topic: /my/arm/camera/camera_info
+    # Shape prior only. The target position is measured from RGB-D.
+    target_radius: 0.02
+
+object_vision:
+  ros__parameters:
+    # Search volume, not an object's pose or class. Set in the calibrated map.
+    workspace_min: [0.6, -1.0, 0.9]
+    workspace_max: [2.5, 1.0, 1.9]
+    max_width: 0.06
+    surface_insertion: 0.01
+    maximum_result_age: 0.6
+
+catch_mission:
+  ros__parameters:
+    # Used only to distinguish target contact from ground/pedestal/self contact.
+    target_model: catch_target
+    pregrasp_distance: 0.12
+    approach_speed: 0.025
+    lift_height: 0.16
+    lift_speed: 0.025
+    vision_timeout: 0.8
+    open_position: 0.018
+    closed_position: -0.018
+    # TCP is at the fingertip edge; grasp center is 24 mm behind it.
+    grasp_tip_offset: 0.024
+    # Continue the precomputed final approach through short occlusions.
+    blind_distance: 0.045
+    blind_timeout: 5.0
+    # Keep the endpoint when fingers obscure the object in the close-up view.
+    refine_approach: false
+    recovery_timeout: 10.0
+    recovery_speed: 0.02
+    maximum_recoveries: 2.0

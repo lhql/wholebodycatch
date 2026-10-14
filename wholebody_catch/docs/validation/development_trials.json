@@ -1,0 +1,44 @@
+[
+  {
+    "trial": "initial_close",
+    "passed": false,
+    "reason": "Mission aborted: CLOSE timeout",
+    "samples": 2271
+  },
+  {
+    "trial": "strict_close",
+    "passed": false,
+    "reason": "Mission aborted: visual target lost before closure",
+    "samples": 2130
+  },
+  {
+    "trial": "partial_view",
+    "passed": false,
+    "reason": "Mission aborted: INSERT timeout",
+    "samples": 2588
+  },
+  {
+    "trial": "sam2_visible_refinement",
+    "passed": false,
+    "reason": "Mission aborted: bilateral target contact lost",
+    "samples": 2428,
+    "max_lift_m": 0.01528140932353228
+  },
+  {
+    "trial": "sam2_planned_endpoint",
+    "passed": true,
+    "reason": "verified physical lift",
+    "samples": 2617,
+    "max_lift_m": 0.1598249227390931
+  },
+  {
+    "trial": "sam2_box_planned_occlusion",
+    "passed": true,
+    "reason": "verified physical lift",
+    "samples": 2602,
+    "max_lift_m": 0.16451460747292845,
+    "vision_pause_sim_time": 73.699,
+    "closure_observation_age": 2.783,
+    "success_observation_age": 13.115
+  }
+]
