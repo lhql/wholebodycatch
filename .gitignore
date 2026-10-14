@@ -6,3 +6,8 @@ __pycache__/
 *.ulg
 .env
 .env.*
+build/
+install/
+log/
+__pycache__/
+*.pyc
